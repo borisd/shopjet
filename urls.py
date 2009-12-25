@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^products/$','my_db.views.show_product'),
+    (r'^table/$','my_db.views.table'),
     (r'^generate_tracking/', 'my_db.views.generate_tracking' ),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     (r'^tag_test/','my_db.views.tag_test' ),

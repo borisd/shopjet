@@ -13,7 +13,7 @@ class Photo(models.Model):
     photoId = models.IntegerField()
     product = models.ForeignKey("Product")
     def __unicode__(self):
-        return `self.photoId`
+        return u'%s [%d]' % (self.product, self.photoId)
 
 
 class Product(models.Model):
@@ -54,6 +54,7 @@ class Glossary(models.Model):
 class Attribute(models.Model):
     name = models.CharField(max_length=30)
     desc = models.TextField(max_length=1000)
+    units = models.CharField(max_length=10)
     def __unicode__(self):
         return self.name
 
@@ -64,4 +65,11 @@ class ProductAttribute(models.Model):
 
     def __unicode__(self):
         return u'%s - %s : %s' % (self.product, self.name, self.value)
+
+class AttributeClass(models.Model):
+    name = models.CharField(max_length=60)
+    list = models.ManyToManyField(Attribute)
+
+    def __unicode__(self):
+        return self.name
 

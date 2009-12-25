@@ -10,6 +10,17 @@ import local_settings
 from models import *
 import random
 
+def get_table(product):
+    products = Product.objects.all()[1:]
+    attr_block = AttributeClass.objects.all()
+
+    return render_to_string('table.html', { 'attr_block': attr_block, 'products':products, 'data_site':local_settings.DATA_SITE })
+
+def table(request):
+    table = get_table(0)
+    return HttpResponse(table)
+
+
 # gets a store url and store_product_id and return the product 
 def show_product(request):
     print 'Start work'
@@ -39,10 +50,12 @@ def show_product(request):
         
 
     print 'Start render'
+    table = get_table(mapping_obj.product)
     html = render_to_string('show_product.html', {'product': mapping_obj.product, 
                                                   'reviews': mapping_obj.product.productreview_set.all(), 
                                                   'photos': mapping_obj.product.photo_set.all(),
                                                   'tracking_id': str(random.random())[2:],
+                                                  'table':table,
                                                   'data_site':local_settings.DATA_SITE,})
     json = simplejson.dumps({'html': html})
     return HttpResponse(request.GET['callback'] + '(' + json + ')', mimetype='application/json')
@@ -61,22 +74,4 @@ def generate_tracking(request):
 def tag_test(request):
     return render_to_response('test.html', {'value':'DLNASRSFull-duplexISFcccHDTV'} )
 
-def table(request):
-    products = Product.objects.all()
-    data = {}
-#    for i in products:
-#        data.
-#    Pro
 
-
-    
-    
-    
-    
-          
-        
-    
-    
-    
-    
-    

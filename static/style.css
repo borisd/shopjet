@@ -123,3 +123,33 @@
 	padding-right: 15px;
 	width: 350px;
 }
+
+#shopjet tr.header {
+    background-color:#e7e8ea;
+    border-top: 1px solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
+    text-align: left;
+
+}
+
+#shopjet td.attr {
+    width:150px;
+}
+
+#shopjet td.value {
+    width:100px;
+}
+
+#shopjet td, th {
+    margin:0px;
+    padding:0px;
+    font-family:verdana,arial,helvetica,sans-serif;
+    font-size:small;
+}
+
+#shopjet .with_border {
+    border-bottom:1px gray dotted;
+    border-right:1px gray dotted;
+}
+

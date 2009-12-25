@@ -16,3 +16,14 @@ def term_defenition(value):
         string = re.sub(word.term, replacement, string)            
         
     return string
+
+def product_attribute(product, attrtype):
+    try:
+        attr = product.productattribute_set.get(name=attrtype)
+    except:
+        return '&nbsp'
+
+    return attr.value + ' ' + attrtype.units
+
+register.simple_tag(product_attribute)
+
