@@ -1,0 +1,125 @@
+#shopjet {
+	width: 700px;
+	text-align: justify;
+	background: #fff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+	color: #222;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 50px;
+}
+
+#shopjet td,#shopjet p,#shopjet ul,#shopjet ol {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+	color: #222;
+}
+
+#shopjet .widgetTitle {
+	font-size: 28px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	padding: 15px 0 5px 20px;
+	margin: 0;
+	color: #fff;
+	background: #fff url(images/header.jpg) repeat-y;
+	vertical-align: top;
+}
+
+#shopjet .widgetSubTitle {
+	font-size: 19px;
+	color: #e1c70e;
+	padding: 5px 0 0 20px;
+	letter-spacing: -1px;
+	font-weight: 100;
+	background: #fff url(images/header.jpg) repeat-y;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+#shopjet .section {
+	
+}
+
+#shopjet .sectionTitle {
+	text-align: justify;
+	background: #FFFFFF url(images/header.jpg) repeat-y scroll 0 0;
+	font-size: 18px;
+	font-weight: 100;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 0 0 15px;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	color: #FFFFFF;
+}
+
+#shopjet .sectionContent {
+	padding-left: 10px;
+	padding-top: 5px;
+	background: #fff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+#shopjet .reviewsTitle {
+	font-size: 16px;
+	font-weight: 80;
+	color: Black;
+	width: 350px;
+}
+
+#shopjet .at15t_facebook {
+	background: url(/static/images/FaceBook-icon.png) top left no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+#shopjet .at15t_email {
+	background: url(/static/images/email.png) top left no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+#shopjet .at15t_twitter {
+	background: url(/static/images/Twitter-icon.png) top left no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+#shopjet #communityReviewsCol {
+	border-left: 1px solid #ccc;
+	padding-left: 10px;
+}
+
+#shopjet #reviews ul {
+	padding-left: 16px;
+}
+
+#shopjet #reviews a {
+	text-decoration: underline;
+}
+
+#shopjet .glossary {
+	display: inline-block;
+	border-bottom: 2px dotted #00aa00;
+}
+
+#shopjet #similarProducts img {
+	height: 100px;
+	width: 100px;
+}
+
+#shopjet #similarProducts a {
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+#shopjet #similarProducts td {
+	padding-right: 15px;
+	width: 350px;
+}
