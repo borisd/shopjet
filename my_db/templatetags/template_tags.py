@@ -2,8 +2,8 @@ from shopjet.my_db.models import Glossary
 from django.template.defaultfilters import stringfilter
 from django import template
 import re
-register=template.Library()
 
+register=template.Library()
 
 #@stringfilter
 @register.filter(name='term_defenition')
@@ -16,5 +16,3 @@ def term_defenition(value):
         string = re.sub(word.term, replacement, string)            
         
     return string
-    
-#register.filter('term_defenition',term_defenition)

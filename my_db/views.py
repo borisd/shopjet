@@ -11,16 +11,17 @@ import random
 # gets a store url and store_product_id and return the product 
 def show_product(request):
     print 'Start work'
-    #if not request.method == 'GET' :
-    #    raise http.Http404                
+
+    if not request.method == 'GET' :
+        raise http.Http404                
+
     try:
         product_id = request.GET['productId']           
         storeURL = request.GET['storeURL']      
-#        mapping_obj=Mapping.objects.get(store__storeURL=storeURL, storeProductId=product_id)
-        print 'Got %s : %s ' % (product_id, storeURL)
-        mapping_obj=Mapping.objects.get(store__id=storeURL, product_id=product_id)
+        mapping_obj=Mapping.objects.get(store__storeURL=storeURL, storeProductId=product_id)
     except:
         raise http.Http404                
+
     #if the users shared the product with a friend 
     try:    
         tracking_id = request.GET.get('sjtc', None)
@@ -50,17 +51,14 @@ def generate_tracking(request):
     return render_to_response('generate_tracking.html', {'couponId': couponId})
     
 def tag_test(request):
-    #return http.HttpResponse("")
     return render_to_response('test.html', {'value':'DLNASRSFull-duplexISFcccHDTV'} )
-    
-    
 
 def table(request):
     products = Product.objects.all()
     data = {}
-    for i in products:
-        data.
-    Pro
+#    for i in products:
+#        data.
+#    Pro
 
 
     
