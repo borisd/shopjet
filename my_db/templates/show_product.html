@@ -22,7 +22,7 @@
 	<div class="sectionContent">
 		<table border="0" cellpadding="8" cellspacing="0">
 			<tr valign="top">
-				<td><img class="productPhoto" src="http://localhost/static/{{photos.0.photo}}" alt="{{product.title}}"/></td>
+                <td><img class="productPhoto" src="http://{{data_site}}/static/{{photos.0.photo}}" alt="{{product.title}}"/></td>
 				<td>
 					{{product.description|term_defenition|safe|linebreaksbr}}
 					<br><br>
@@ -96,12 +96,12 @@
 		<table>
 			<tbody>
 				<tr>
-					<td><img src="http://localhost/static/images/thumb.jpg" /> <a
+                    <td><img src="http://{{data_site}}/static/images/thumb.jpg" /> <a
 						href="#">Samsung 32" KL103</a>
 					<div>A good bargain for a fully fledged HDTV, the Samsung
 					40-inch LCD is an excellent television across the board</div>
 					</td>
-					<td><img src="http://localhost/static/images/thumb2.jpg" />
+                    <td><img src="http://{{data_site}}/static/images/thumb2.jpg" />
 					<a href="#">Sony Bravia KDL46Z5500</a>
 					<div>Boasting improved design and an upgraded picture engine,
 					the Sony Bravia KDL46Z5500 is perfect for watching the World Cup on.

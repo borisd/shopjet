@@ -1,7 +1,10 @@
 # Django settings for shopjet project.
+import os
+import local_settings
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+DOC_ROOT = os.path.dirname(__file__)
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -9,12 +12,18 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'd:/python/work/shopjet/shopjet'             # Or path to database file if using sqlite3.
-DATABASE_USER = ''             # Not used with sqlite3.
-DATABASE_PASSWORD = ''         # Not used with sqlite3.
-DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
+DATABASE_ENGINE = local_settings.DATABASE_ENGINE
+DATABASE_NAME   = local_settings.DATABASE_NAME
+DATABASE_USER   = local_settings.DATABASE_USER
+DATABASE_PASSWORD = local_settings.DATABASE_PASSWORD
+DATABASE_HOST   = local_settings.DATABASE_HOST
+DATABASE_PORT   = local_settings.DATABASE_PORT
+
+EMAIL_HOST      = local_settings.EMAIL_HOST
+EMAIL_HOST_USER = local_settings.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = local_settings.EMAIL_HOST_PASSWORD
+DEFAULT_FROM_EMAIL = local_settings.DEFAULT_FROM_EMAIL
+SERVER_EMAIL    = local_settings.SERVER_EMAIL
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -68,11 +77,12 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'shopjet.urls'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+set_dir = lambda x: os.path.join(DOC_ROOT, x).replace('\\','/')
+TEMPLATE_DIRS = [
+    set_dir("templates"),
+    set_dir("coupon\\templates"),
+    set_dir("people\\templates"),
+]
 
 INSTALLED_APPS = (
     'django.contrib.admin',

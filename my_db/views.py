@@ -5,6 +5,8 @@ from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.utils import simplejson
 
+import local_settings
+
 from models import *
 import random
 
@@ -13,6 +15,7 @@ def show_product(request):
     print 'Start work'
 
     if not request.method == 'GET' :
+        print 'Not a GET request'
         raise http.Http404                
 
     try:
@@ -20,6 +23,7 @@ def show_product(request):
         storeURL = request.GET['storeURL']      
         mapping_obj=Mapping.objects.get(store__storeURL=storeURL, storeProductId=product_id)
     except:
+        print 'Could not get mapping [%s] : [%s]' % (request.GET.get('productId', '0'), request.GET.get('storeURL', '0'))
         raise http.Http404                
 
     #if the users shared the product with a friend 
@@ -30,12 +34,16 @@ def show_product(request):
             tracking_obj.visitor_count+=1
             tracking_obj.save()
     except Tracking.DoesNotExist:
+        print 'Could not get traking'
         pass
         
+
+    print 'Start render'
     html = render_to_string('show_product.html', {'product': mapping_obj.product, 
                                                   'reviews': mapping_obj.product.productreview_set.all(), 
                                                   'photos': mapping_obj.product.photo_set.all(),
-                                                  'tracking_id': str(random.random())[2:]})
+                                                  'tracking_id': str(random.random())[2:],
+                                                  'data_site':local_settings.DATA_SITE,})
     json = simplejson.dumps({'html': html})
     return HttpResponse(request.GET['callback'] + '(' + json + ')', mimetype='application/json')
     
