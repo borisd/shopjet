@@ -1,4 +1,5 @@
 {% load template_tags %}        
+{% load i18n %}
 <table>
     <tr>
         <td> </td>
@@ -12,16 +13,16 @@
     </tr>
 
 
-    {% for r in result %}
+    {% for block in result %}
     <tr class="header" style="line-height:25px">
-        <th colspan="6"> {{ r.class }} </th>
+        <th colspan="6"> {{ block.class }} </th>
     </tr>
 
-    {% for a in r.attrs %}
+    {% for attribute in block.attrs %}
     <tr>
-        <td class="attr with_border"> {{ a.0.name }} </td>
-        {% for x in a %}
-        <td class="value with_border"> {{ x.value }} </td>
+        <td class="attr with_border"> {% trans attribute %} </td>
+        {% for p in products %}
+        <td class="value with_border"> {% product_attribute p attribute %} </td>
         {% endfor %}
     </tr>
     {% endfor %}

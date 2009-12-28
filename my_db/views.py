@@ -26,18 +26,7 @@ def get_table(product):
             curr_aclass = i.name.aclass
             block = { 'class': curr_aclass, 'attrs': [] }
 
-        attr = [i,]
-        for p in products:
-            if p == product:
-                continue
-
-            try:
-                val = p.productattribute_set.get(name=i.name)
-            except:
-                val = 0
-            attr.append(val)
-
-        block['attrs'].append(attr)
+        block['attrs'].append(i.name)
 
     result.append(block)    
 
