@@ -1,6 +1,7 @@
 from shopjet.my_db.models import Glossary
 from django.template.defaultfilters import stringfilter
 from django import template
+from django.utils.translation import ugettext as _
 import re
 
 register=template.Library()
@@ -23,7 +24,7 @@ def product_attribute(product, attrtype):
     except:
         return '&nbsp'
 
-    return attr.value + ' ' + attrtype.units
+    return _(attr.value) + ' ' + (attrtype.units)
 
 register.simple_tag(product_attribute)
 
