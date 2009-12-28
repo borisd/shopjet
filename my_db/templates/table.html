@@ -3,7 +3,7 @@
     <tr>
         <td> </td>
         {% for p in products %}
-        <td style="line-height:0"> 
+        <td style="line-height:8px"> 
             <img height="64" width="64" src="http://{{data_site}}/static/{{ p.photo_set.get.photo }}"/>
             <strong>{{p.title}}</strong>
             <p style="line-height:10px">{{p.subtitle}}</p>
