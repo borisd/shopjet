@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-28 18:57+0200\n"
+"PO-Revision-Date: 2009-12-28 19:20+0200\n"
+"Last-Translator: bla bla <do@itlater.com>\n"
+"Language-Team: Boris <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: hebrew\n"
+"X-Poedit-Country: israel\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: .\settings.py:48
+msgid "Hebrew"
+msgstr "עברית"
+
+#: .\settings.py:49
+msgid "English"
+msgstr ""
+
+#: .\my_db\templates\table.html.py:5
+msgid "heading"
+msgstr "lala"
+
+#: .\my_db\templates\table.html.py:27
+msgid "foo"
+msgstr "FOOBAR"
+
+msgid "Size"
+msgstr "גודל"
+
+msgid "Weight"
+msgstr "משקל"
+
+msgid "Noise"
+msgstr "רעש"
+
+msgid "Brightness"
+msgstr "בהירות"
+
+msgid "Contrast"
+msgstr "קונטרסט"
+
+msgid "Image size"
+msgstr "גודל תמונה"
+
+msgid "Distance"
+msgstr "מרחק"
+
+msgid "Speaker"
+msgstr "רמקול"
+
+msgid "Lamp life"
+msgstr "חיי נורה"
+
+msgid "hours"
+msgstr "שעות"
+
+msgid "Yes"
+msgstr "כן"
+
+msgid "Two"
+msgstr "שתיים"
+
+msgid "lumens"
+msgstr "לומנס"
+
+msgid "cm"
+msgstr "ס\"מ"
+
+msgid "m"
+msgstr "מטר"
+
+msgid "Physical properties"
+msgstr "מאפיינים פיזיים"
+
+msgid "Display information"
+msgstr "מאפייני תצוגה"
+
+msgid "Additional features"
+msgstr "מאפיינים נוספים"
+

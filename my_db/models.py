@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import ugettext as _
 
 class ProductReview(models.Model):
     product= models.ForeignKey("Product")
@@ -6,7 +7,7 @@ class ProductReview(models.Model):
     details= models.TextField(max_length=10000)
     link = models.URLField()    
     def __unicode__(self):
-        return self.title
+        return _(self.title)
         
 class Photo(models.Model):
     photo = models.ImageField(upload_to='photos/')
@@ -24,13 +25,13 @@ class Product(models.Model):
     description = models.TextField(max_length=10000)
      
     def __unicode__(self):
-        return self.title
+        return _(self.title)
         
 class Store(models.Model):
     storeName = models.CharField(max_length=50)
     storeURL = models.CharField(max_length=100)    
     def __unicode__(self):
-        return self.storeName
+        return _(self.storeName)
     
 class Tracking(models.Model):
     trackId = models.CharField(max_length=30)
@@ -38,7 +39,7 @@ class Tracking(models.Model):
     store = models.ForeignKey(Store)
     visitor_count = models.IntegerField(default=0)
     def __unicode__(self):
-        return self.trackId
+        return _(self.trackId)
     
 class Mapping(models.Model):
     store = models.ForeignKey(Store)
@@ -49,13 +50,13 @@ class Glossary(models.Model):
     term = models.CharField(max_length=100)
     defenition = models.TextField(max_length=1000)
     def __unicode__(self):
-        return self.term
+        return _(self.term)
 
 class AttributeClass(models.Model):
     name = models.CharField(max_length=60)
 
     def __unicode__(self):
-        return self.name
+        return _(self.name)
 
 class Attribute(models.Model):
     name = models.CharField(max_length=30)
@@ -64,7 +65,7 @@ class Attribute(models.Model):
     aclass = models.ForeignKey(AttributeClass)
 
     def __unicode__(self):
-        return self.name
+        return _(self.name)
 
 class ProductAttribute(models.Model):
     product = models.ForeignKey(Product)
