@@ -1,145 +1,142 @@
 {% load template_tags %}
 
 <script type="text/javascript">
-	document.sjtc = '{{ tracking_id }}';
-	var addthis_config = {
-	   ui_cobrand: 'Shopjet',
-	   ui_use_addressbook: true
-	};
-	var addthis_share = {
-		url: document.location.href + '?sjtc={{ tracking_id }}',
-		title: '{{product.title}}',
-		description: '{{product.description}}'
-	};
+    document.sjtc = '{{ tracking_id }}';
+    var addthis_config = {
+ui_cobrand: 'Shopjet',
+            ui_use_addressbook: true
+    };
+var addthis_share = {
+url: document.location.href + '?sjtc={{ tracking_id }}',
+     title: '{{product.title}}',
+     description: '{{product.description}}'
+};
 </script>
 
 <div class="widgetTitle">{{product.title}}</div>
 {% if product.subtitle %}
-	<div class="widgetSubTitle">{{ product.subtitle }}</div>
+<div class="widgetSubTitle">{{ product.subtitle }}</div>
 {% endif %}
 
 <div class="section" id="overview">
-	<div class="sectionContent">
-		<table border="0" cellpadding="8" cellspacing="0">
-			<tr valign="top">
+    <div class="sectionContent">
+        <table border="0" cellpadding="8" cellspacing="0">
+            <tr valign="top">
                 <td><img class="productPhoto" src="http://{{data_site}}/static/{{photos.0.photo}}" alt="{{product.title}}"/></td>
-				<td>
-					{{product.description|term_defenition|safe|linebreaksbr}}
-					<br><br>
-					<b>Recommend to your friends, get a coupon!</b>
-					<!-- AddThis Button BEGIN -->
-					<div class="addthis_toolbox addthis_default_style">
-						<a class="addthis_button_facebook"></a>
-						<a class="addthis_button_twitter"></a>
-						<a class="addthis_button_email"></a>
-					</div>
-					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b2a308f3ba35ad7"></script>
-					<!-- AddThis Button END -->
-				</td>
-			</tr>
-		</table>
-	</div>
+                <td>
+                    {{product.description|term_defenition|safe|linebreaksbr}}
+                    <br><br>
+                    <b>Recommend to your friends, get a coupon!</b>
+                    <!-- AddThis Button BEGIN -->
+                    <div class="addthis_toolbox addthis_default_style">
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_button_email"></a>
+                    </div>
+                    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b2a308f3ba35ad7"></script>
+                    <!-- AddThis Button END -->
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <div class="section" id="featuresList">
-	<div class="sectionTitle">Features</div>
-		<div class="sectionContent">
-			<table border="0" cellpadding="8" cellspacing="0">
-				<tr valign="top">
-					<td width="320">{{product.features_list|term_defenition|safe|linebreaksbr}}</td>
-					{% if product.video %}
-						<td>
-                            <object width="320" height="265">
-                                <param name="movie" value="http://www.youtube.com/v/5MxdfUfiWx0&hl=en_US&fs=1&color1=0x2b405b&color2=0x6b8ab6"></param>
-                                <param name="allowFullScreen" value="true"></param>
-                                <param name="allowscriptaccess" value="always"></param>
-                                <embed src="{{ product.video }}" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="320" height="265"></embed></object>
-						</td>
-					{% endif %}
-				</tr>
-			</table>
-		</div>
-	</div>
+    <div class="sectionTitle">Features</div>
+    <div class="sectionContent">
+        <table border="0" cellpadding="8" cellspacing="0">
+            <tr valign="top">
+                <td width="320">{{product.features_list|term_defenition|safe|linebreaksbr}}</td>
+                {% if product.video %}
+                <td>
+                    <object width="320" height="265">
+                        <param name="movie" value="http://www.youtube.com/v/5MxdfUfiWx0&hl=en_US&fs=1&color1=0x2b405b&color2=0x6b8ab6"></param>
+                        <param name="allowFullScreen" value="true"></param>
+                        <param name="allowscriptaccess" value="always"></param>
+                        <embed src="{{ product.video }}" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="320" height="265"></embed></object>
+                </td>
+                {% endif %}
+            </tr>
+        </table>
+    </div>
 </div>
 
 <div class="section" id="reviews">
-	<div class="sectionTitle">Opinions</div>
-		<div class="sectionContent">
-			<table>
-				<tr valign="top">
-					<td id="profReviewsCol"> <div class="reviewsTitle">Professional Reviews</div>
-						<ul>
-							{% for review in reviews %}
-							    <li><strong>{{ review.title }}</strong>
-							    <span>{{ review.details|linebreaksbr }}</span>
-							    <a href="{{ review.link }}">Read more...</a>
-							    </li>
-							{% endfor %}
-						</ul>
-					</td>
-					<td id="communityReviewsCol"> <div class="reviewsTitle">What the Community Says</div>
-						<ul>
-						    <li>Bought this TV last year, never had any prolems with it. Recommended!!! <strong>David Hirsch, NY</strong>
-						    </li>
-						</ul>
-						<a href="">Do you own this product? Write your own review!</a>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
+    <div class="sectionTitle">Opinions</div>
+    <div class="sectionContent">
+        <table>
+            <tr valign="top">
+                <td id="profReviewsCol"> <div class="reviewsTitle">Professional Reviews</div>
+                    <ul>
+                        {% for review in reviews %}
+                        <li><strong>{{ review.title }}</strong>
+                        <span>{{ review.details|linebreaksbr }}</span>
+                        <a href="{{ review.link }}">Read more...</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td id="communityReviewsCol"> <div class="reviewsTitle">What the Community Says</div>
+                    <ul>
+                        <li>Bought this TV last year, never had any prolems with it. Recommended!!! <strong>David Hirsch, NY</strong>
+                        </li>
+                    </ul>
+                    <a href="">Do you own this product? Write your own review!</a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <div id="comparisonTable" class="section">
-	<div class="sectionTitle">Comparison</div>
-	<div class="sectionContent">
-		<table>
-			<tbody>
+    <div class="sectionTitle">Comparison</div>
+    <div class="sectionContent">
+        <table>
+            <tbody>
                 <tr>
                     {{ table }}
-				</tr>
-			</tbody>
-		</table>
-	</div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <div id="similarProducts" class="section">
-	<div class="sectionTitle">Similar Products</div>
-	<div class="sectionContent">
-		<table>
-			<tbody>
-				<tr>
+    <div class="sectionTitle">Similar Products</div>
+    <div class="sectionContent">
+        <table>
+            <tbody>
+                <tr>
                     <td><img src="http://{{data_site}}/static/images/thumb.jpg" /> <a
-						href="#">Samsung 32" KL103</a>
-					<div>A good bargain for a fully fledged HDTV, the Samsung
-					40-inch LCD is an excellent television across the board</div>
-					</td>
+                            href="#">Samsung 32" KL103</a>
+                        <div>A good bargain for a fully fledged HDTV, the Samsung
+                            40-inch LCD is an excellent television across the board</div>
+                    </td>
                     <td><img src="http://{{data_site}}/static/images/thumb2.jpg" />
-					<a href="#">Sony Bravia KDL46Z5500</a>
-					<div>Boasting improved design and an upgraded picture engine,
-					the Sony Bravia KDL46Z5500 is perfect for watching the World Cup on.
-					Which Cup is up to you</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+                        <a href="#">Sony Bravia KDL46Z5500</a>
+                        <div>Boasting improved design and an upgraded picture engine,
+                            the Sony Bravia KDL46Z5500 is perfect for watching the World Cup on.
+                            Which Cup is up to you</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <div class="section" id="share">
-	<div class="sectionTitle">Share</div>
-		<div class="sectionContent">
-			<b>
-				Ask for your friends' opinion about {{product.title}}:
-			</b> 
-			<!-- AddThis Button BEGIN -->
-			<div class="addthis_toolbox addthis_default_style">
-				<a class="addthis_button_facebook"></a>
-				<a class="addthis_button_twitter"></a>
-				<a class="addthis_button_email"></a>
-			</div>
-			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b2a308f3ba35ad7"></script>
-			<!-- AddThis Button END -->
-		</div>
-	</div>
+    <div class="sectionTitle">Share</div>
+    <div class="sectionContent">
+        <b>
+            Ask for your friends' opinion about {{product.title}}:
+        </b> 
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook"></a>
+            <a class="addthis_button_twitter"></a>
+            <a class="addthis_button_email"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b2a308f3ba35ad7"></script>
+        <!-- AddThis Button END -->
+    </div>
 </div>
