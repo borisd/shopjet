@@ -11,13 +11,40 @@ from models import *
 import random
 
 def get_table(product):
-    products = Product.objects.all()[1:]
-    attr_block = AttributeClass.objects.all()
 
-    return render_to_string('table.html', { 'attr_block': attr_block, 'products':products, 'data_site':local_settings.DATA_SITE })
+    products = Product.objects.all()[1:]
+    attrs = ProductAttribute.objects.filter(product=product).order_by("name__aclass")
+    
+    curr_aclass = 0
+    result = []
+    block = 0
+    for i in attrs:
+        if i.name.aclass != curr_aclass:
+            if block:
+                result.append(block)
+
+            curr_aclass = i.name.aclass
+            block = { 'class': curr_aclass, 'attrs': [] }
+
+        attr = [i,]
+        for p in products:
+            if p == product:
+                continue
+
+            try:
+                val = p.productattribute_set.get(name=i.name)
+            except:
+                val = 0
+            attr.append(val)
+
+        block['attrs'].append(attr)
+
+    result.append(block)    
+
+    return render_to_string('table.html', { 'result': result, 'products':products, 'data_site':local_settings.DATA_SITE })
 
 def table(request):
-    table = get_table(0)
+    table = get_table(Product.objects.all()[1])
     return HttpResponse(table)
 
 
@@ -50,7 +77,8 @@ def show_product(request):
         
 
     print 'Start render'
-    table = get_table(mapping_obj.product)
+#    table = get_table(mapping_obj.product)
+    table = get_table(Product.objects.all()[1])
     html = render_to_string('show_product.html', {'product': mapping_obj.product, 
                                                   'reviews': mapping_obj.product.productreview_set.all(), 
                                                   'photos': mapping_obj.product.photo_set.all(),

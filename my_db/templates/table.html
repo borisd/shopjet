@@ -11,18 +11,21 @@
         {% endfor %}
     </tr>
 
-    {% for block in attr_block %}
+
+    {% for r in result %}
     <tr class="header" style="line-height:25px">
-        <th colspan="6"> {{ block.name }} </th>
+        <th colspan="6"> {{ r.class }} </th>
     </tr>
 
-    {% for attr in block.list.all %}
+    {% for a in r.attrs %}
     <tr>
-        <td class="attr with_border"> {{ attr.name }} </td>
-        {% for p in products %}
-        <td class="value with_border"> {% product_attribute p attr %} </td>
+        <td class="attr with_border"> {{ a.0.name }} </td>
+        {% for x in a %}
+        <td class="value with_border"> {{ x.value }} </td>
         {% endfor %}
     </tr>
     {% endfor %}
     {% endfor %}
+
+
 </table>
