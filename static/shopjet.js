@@ -1,6 +1,6 @@
 function shopjet_init() {
 	var product_id = shopjet_get_product_id();
-	var store_url = 'www.sales-shop.com'; //document.domain;
+	var store_url = 'livesale.co.il'; //document.domain;
 	var params = 'storeURL=' + encodeURIComponent(store_url) + 
 				 '&productId=' + encodeURIComponent(product_id) + 
 				 '&callback=?';
@@ -11,7 +11,7 @@ function shopjet_init() {
 
 
 function shopjet_get_product_id() {
-	return 'kick_ass_tv';
+	return 'Panasonic42';
 }
 
 $(document).ready(shopjet_init);

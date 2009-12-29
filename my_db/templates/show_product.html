@@ -1,17 +1,5 @@
 {% load template_tags %}
-
-<script type="text/javascript">
-    document.sjtc = '{{ tracking_id }}';
-    var addthis_config = {
-ui_cobrand: 'Shopjet',
-            ui_use_addressbook: true
-    };
-var addthis_share = {
-url: document.location.href + '?sjtc={{ tracking_id }}',
-     title: '{{product.title}}',
-     description: '{{product.description}}'
-};
-</script>
+{% load i18n %}
 
 <div class="widgetTitle">{{product.title}}</div>
 {% if product.subtitle %}
@@ -25,18 +13,24 @@ url: document.location.href + '?sjtc={{ tracking_id }}',
                 <td><img class="productPhoto" src="http://{{data_site}}/static/{{photos.0.photo}}" alt="{{product.title}}"/></td>
                 <td>
                     {{product.description|term_defenition|safe|linebreaksbr}}
-d                </td>
+                </td>
             </tr>
         </table>
     </div>
 </div>
 
 <div class="section" id="featuresList">
-    <div class="sectionTitle">Features</div>
+    <div class="sectionTitle">{% trans "Features" %}</div>
     <div class="sectionContent">
         <table border="0" cellpadding="8" cellspacing="0">
             <tr valign="top">
-                <td width="320">{{product.features_list|term_defenition|safe|linebreaksbr}}</td>
+                <td width="320">
+                <ul>
+                    {% for attr in product.productattribute_set.all %}
+                    <li> {{ attr.name }} - {{ attr.value }} </li>
+                    {% endfor %}
+                </ul>
+                </td>
                 {% if product.video %}
                 <td>
                     <object width="320" height="265">
@@ -52,11 +46,11 @@ d                </td>
 </div>
 
 <div class="section" id="reviews">
-    <div class="sectionTitle">Opinions</div>
+    <div class="sectionTitle">{% trans "Opinions" %}</div>
     <div class="sectionContent">
         <table>
             <tr valign="top">
-                <td id="profReviewsCol"> <div class="reviewsTitle">Professional Reviews</div>
+                <td id="profReviewsCol"> <div class="reviewsTitle">{% trans "Professional Reviews" %}</div>
                     <ul>
                         {% for review in reviews %}
                         <li><strong>{{ review.title }}</strong>
@@ -66,7 +60,7 @@ d                </td>
                         {% endfor %}
                     </ul>
                 </td>
-                <td id="communityReviewsCol"> <div class="reviewsTitle">What the Community Says</div>
+                <td id="communityReviewsCol"> <div class="reviewsTitle">{% trans "What the Community Says" %}</div>
                     <ul>
                         <li>Bought this TV last year, never had any prolems with it. Recommended!!! <strong>David Hirsch, NY</strong>
                         </li>
@@ -79,7 +73,7 @@ d                </td>
 </div>
 
 <div id="comparisonTable" class="section">
-    <div class="sectionTitle">Comparison</div>
+    <div class="sectionTitle">{% trans "Comparison" %}</div>
     <div class="sectionContent">
         <table>
             <tbody>
@@ -92,7 +86,7 @@ d                </td>
 </div>
 
 <div id="similarProducts" class="section">
-    <div class="sectionTitle">Similar Products</div>
+    <div class="sectionTitle">{% trans "Similar Products" %}</div>
     <div class="sectionContent">
         <table>
             <tbody>
@@ -115,10 +109,10 @@ d                </td>
 </div>
 
 <div class="section" id="share">
-    <div class="sectionTitle">Share</div>
+    <div class="sectionTitle">{% trans "Share" %}</div>
     <div class="sectionContent">
         <b>
-            Ask for your friends' opinion about {{product.title}}:
+            {% trans "Ask friend's opitions" %} 
         </b> 
         <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style">
