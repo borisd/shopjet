@@ -15,11 +15,9 @@ def get_table(mapping):
     products = []
     store_mappings = mapping.store.mapping_set.all()
     for p in store_mappings:
-        products.append(p)
-
+        products.append(p.product)
 
     attrs = ProductAttribute.objects.filter(product=mapping.product).order_by("name__aclass")
-
     
     curr_aclass = 0
     result = []

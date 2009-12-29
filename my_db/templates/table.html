@@ -4,10 +4,10 @@
     <tr>
         <td> </td>
         {% for p in products %}
-        <td style="line-height:8px"> 
-            <img height="64" width="64" src="http://{{data_site}}/static/{{ p.photo_set.get.photo }}"/>
+        <td> 
+            <p><img width="64" src="http://{{data_site}}/static/{{ p.photo_set.get.photo }}"/></p>
             <strong>{{p.title}}</strong>
-            <p style="line-height:10px">{{p.subtitle}}</p>
+            {{p.subtitle}}
         </td>
         {% endfor %}
     </tr>

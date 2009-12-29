@@ -10,6 +10,7 @@
     <div class="sectionContent">
         <table border="0" cellpadding="8" cellspacing="0">
             <tr valign="top">
+                
                 <td><img class="productPhoto" src="http://{{data_site}}/static/{{photos.0.photo}}" alt="{{product.title}}"/></td>
                 <td>
                     {{product.description|term_defenition|safe|linebreaksbr}}
@@ -30,7 +31,7 @@
                     <li> {{ attr.name }} - {{ attr.value }} </li>
                     {% endfor %}
                 </ul>
-                </td>
+            </td>
                 {% if product.video %}
                 <td>
                     <object width="320" height="265">
@@ -65,7 +66,7 @@
                         <li>Bought this TV last year, never had any prolems with it. Recommended!!! <strong>David Hirsch, NY</strong>
                         </li>
                     </ul>
-                    <a href="">Do you own this product? Write your own review!</a>
+                    <a href="">{% trans "Do you own this product? Write your own review!" %}</a>
                 </td>
             </tr>
         </table>
