@@ -5,7 +5,7 @@
         <td> </td>
         {% for p in products %}
         <td> 
-            <p><img width="64" src="http://{{data_site}}/static/{{ p.photo_set.get.photo }}"/></p>
+            <p><img width="64" src="{{ p.photo_set.get.photo_small }}"/></p>
             <strong>{{p.title}}</strong>
             {{p.subtitle}}
         </td>
