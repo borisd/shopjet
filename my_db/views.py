@@ -10,10 +10,16 @@ import local_settings
 from models import *
 import random
 
-def get_table(product):
+def get_table(mapping):
 
-    products = Product.objects.all()[1:]
-    attrs = ProductAttribute.objects.filter(product=product).order_by("name__aclass")
+    products = []
+    store_mappings = mapping.store.mapping_set.all()
+    for p in store_mappings:
+        products.append(p)
+
+
+    attrs = ProductAttribute.objects.filter(product=mapping.product).order_by("name__aclass")
+
     
     curr_aclass = 0
     result = []
@@ -33,7 +39,7 @@ def get_table(product):
     return render_to_string('table.html', { 'result': result, 'products':products, 'data_site':local_settings.DATA_SITE })
 
 def table(request):
-    table = get_table(Product.objects.all()[1])
+    table = get_table(Mapping.objects.all()[1])
     return HttpResponse(table)
 
 
@@ -66,8 +72,7 @@ def show_product(request):
         
 
     print 'Start render'
-#    table = get_table(mapping_obj.product)
-    table = get_table(Product.objects.all()[1])
+    table = get_table(mapping_obj)
     html = render_to_string('show_product.html', {'product': mapping_obj.product, 
                                                   'reviews': mapping_obj.product.productreview_set.all(), 
                                                   'photos': mapping_obj.product.photo_set.all(),
