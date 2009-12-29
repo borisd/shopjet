@@ -1,5 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -7,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-28 18:57+0200\n"
-"PO-Revision-Date: 2009-12-28 19:20+0200\n"
+"POT-Creation-Date: 2009-12-29 08:49+0200\n"
+"PO-Revision-Date: 2009-12-29 09:00+0200\n"
 "Last-Translator: bla bla <do@itlater.com>\n"
 "Language-Team: Boris <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,11 +24,41 @@ msgstr "עברית"
 msgid "English"
 msgstr ""
 
-#: .\my_db\templates\table.html.py:5
+#: .\my_db\templates\show_product.html.py:23
+msgid "Features"
+msgstr "מאפיינים"
+
+#: .\my_db\templates\show_product.html.py:49
+msgid "Opinions"
+msgstr "דעות"
+
+#: .\my_db\templates\show_product.html.py:53
+msgid "Professional Reviews"
+msgstr "ג"
+
+#: .\my_db\templates\show_product.html.py:63
+msgid "What the Community Says"
+msgstr "מה הקהילה אומרת"
+
+#: .\my_db\templates\show_product.html.py:76
+msgid "Comparison"
+msgstr "השוואת"
+
+#: .\my_db\templates\show_product.html.py:89
+msgid "Similar Products"
+msgstr "מוצרים דומים"
+
+#: .\my_db\templates\show_product.html.py:112
+msgid "Share"
+msgstr "שתף"
+
+#: .\my_db\templates\show_product.html.py:115
+msgid "Ask friend's opitions"
+msgstr "שאל דעתו של חבר"
+
 msgid "heading"
 msgstr "lala"
 
-#: .\my_db\templates\table.html.py:27
 msgid "foo"
 msgstr "FOOBAR"
 
@@ -87,4 +115,16 @@ msgstr "מאפייני תצוגה"
 
 msgid "Additional features"
 msgstr "מאפיינים נוספים"
+
+msgid "Resolution"
+msgstr "רזולוציה"
+
+msgid "Physical Size"
+msgstr "גודל פיזי"
+
+msgid "Viewing Angle"
+msgstr "זווית צפיה"
+
+msgid "Native Aspect Ratio"
+msgstr "יחס תמונה"
 
