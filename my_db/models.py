@@ -10,7 +10,8 @@ class ProductReview(models.Model):
         return _(self.title)
         
 class Photo(models.Model):
-    photo = models.ImageField(upload_to='photos/')
+    photo_small = models.URLField(blank=True, null=True)
+    photo_large = models.URLField(blank=True, null=True)
     photoId = models.IntegerField()
     product = models.ForeignKey("Product")
     def __unicode__(self):
