@@ -63,8 +63,9 @@
                 </td>
                 <td id="communityReviewsCol"> <div class="reviewsTitle">{% trans "What the Community Says" %}</div>
                     <ul>
-                        <li>Bought this TV last year, never had any prolems with it. Recommended!!! <strong>David Hirsch, NY</strong>
-                        </li>
+                        {% for review in user_reviews %}
+                        <li> {{ review.review }} <br><strong> {{ review.user }}</strong> </li>
+                        {% endfor %}
                     </ul>
                     <a href="">{% trans "Do you own this product? Write your own review!" %}</a>
                 </td>

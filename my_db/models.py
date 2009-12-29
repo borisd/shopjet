@@ -76,4 +76,11 @@ class ProductAttribute(models.Model):
     def __unicode__(self):
         return u'%s - %s : %s' % (self.product, self.name, self.value)
 
+class UserReviews(models.Model):
+    product = models.ForeignKey(Product)
+    user = models.CharField(max_length=50)
+    review = models.TextField(max_length=1000)
+    date = models.DateField(auto_now_add=True)
 
+    def __unicode__(self):
+        return u'%s - %s' % (self.product, self.user)

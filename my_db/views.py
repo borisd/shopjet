@@ -73,6 +73,7 @@ def show_product(request):
     table = get_table(mapping_obj)
     html = render_to_string('show_product.html', {'product': mapping_obj.product, 
                                                   'reviews': mapping_obj.product.productreview_set.all(), 
+                                                  'user_reviews': mapping_obj.product.userreviews_set.all(), 
                                                   'photos': mapping_obj.product.photo_set.all(),
                                                   'tracking_id': str(random.random())[2:],
                                                   'table':table,
