@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Main\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-29 08:49+0200\n"
-"PO-Revision-Date: 2009-12-29 09:00+0200\n"
+"PO-Revision-Date: 2009-12-29 09:59+0200\n"
 "Last-Translator: bla bla <do@itlater.com>\n"
 "Language-Team: Boris <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "דעות"
 
 #: .\my_db\templates\show_product.html.py:53
 msgid "Professional Reviews"
-msgstr "ג"
+msgstr "סקירה מקצועית"
 
 #: .\my_db\templates\show_product.html.py:63
 msgid "What the Community Says"
