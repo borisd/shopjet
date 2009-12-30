@@ -56,7 +56,7 @@
                         {% for review in reviews %}
                         <li><strong>{{ review.title }}</strong>
                         <span>{{ review.details|linebreaksbr }}</span>
-                        <a href="{{ review.link }}" target="_blank">Read more...</a>
+                        <a href="{{ review.link }}" target="_blank">{% trans "Read more" %} ...</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -67,7 +67,7 @@
                         <li> {{ review.review }} <br><strong> {{ review.user }}</strong> </li>
                         {% endfor %}
                     </ul>
-                    <a href="">{% trans "Do you own this product? Write your own review!" %}</a>
+                    <a href="">{% trans "Write a review" %}</a>
                 </td>
             </tr>
         </table>

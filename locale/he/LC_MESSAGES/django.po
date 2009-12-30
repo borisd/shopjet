@@ -1,4 +1,3 @@
-# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
@@ -6,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Main\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-29 08:49+0200\n"
-"PO-Revision-Date: 2009-12-29 09:59+0200\n"
+"PO-Revision-Date: 2009-12-30 09:24+0200\n"
 "Last-Translator: bla bla <do@itlater.com>\n"
 "Language-Team: Boris <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -127,4 +126,10 @@ msgstr "זווית צפיה"
 
 msgid "Native Aspect Ratio"
 msgstr "יחס תמונה"
+
+msgid "Read more"
+msgstr "קרא עוד"
+
+msgid "Write a review"
+msgstr "הוסף ביקורת"
 
