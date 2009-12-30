@@ -12,9 +12,11 @@ import random
 
 def get_table(mapping):
 
-    products = []
+    products = [mapping.product]
     store_mappings = mapping.store.mapping_set.all()
     for p in store_mappings:
+        if p.product == mapping.product:
+            continue
         products.append(p.product)
 
     attrs = ProductAttribute.objects.filter(product=mapping.product).order_by("name__aclass")
@@ -40,6 +42,9 @@ def table(request):
     table = get_table(Mapping.objects.all()[1])
     return HttpResponse(table)
 
+
+def gadget(request):
+    pass
 
 # gets a store url and store_product_id and return the product 
 def show_product(request):
@@ -69,12 +74,22 @@ def show_product(request):
         pass
         
 
-    print 'Start render'
     table = get_table(mapping_obj)
+
+    similar = []
+    for p in mapping_obj.store.mapping_set.all():
+        if p.product == mapping_obj.product:
+            continue
+        similar.append(p.product)
+
+    similar = similar[0:2]        
+
+    print 'Start render'
     html = render_to_string('show_product.html', {'product': mapping_obj.product, 
                                                   'reviews': mapping_obj.product.productreview_set.all(), 
                                                   'user_reviews': mapping_obj.product.userreviews_set.all(), 
                                                   'photos': mapping_obj.product.photo_set.all(),
+                                                  'similar':similar,
                                                   'tracking_id': str(random.random())[2:],
                                                   'table':table,
                                                   'data_site':local_settings.DATA_SITE,})

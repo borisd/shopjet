@@ -20,7 +20,7 @@
 
     {% for attribute in block.attrs %}
     <tr>
-        <td class="attr with_border"> {% trans attribute %} </td>
+        <td class="attr with_border"> <span class="glossary" title="{{ attribute.desc }}" > {% trans attribute %} </span> </td>
         {% for p in products %}
         <td class="value with_border"> {% product_attribute p attribute %} </td>
         {% endfor %}

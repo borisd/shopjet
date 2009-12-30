@@ -56,7 +56,7 @@
                         {% for review in reviews %}
                         <li><strong>{{ review.title }}</strong>
                         <span>{{ review.details|linebreaksbr }}</span>
-                        <a href="{{ review.link }}">Read more...</a>
+                        <a href="{{ review.link }}" target="_blank">Read more...</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -93,17 +93,12 @@
         <table>
             <tbody>
                 <tr>
-                    <td><img src="http://{{data_site}}/static/images/thumb.jpg" /> <a
-                            href="#">Samsung 32" KL103</a>
-                        <div>A good bargain for a fully fledged HDTV, the Samsung
-                            40-inch LCD is an excellent television across the board</div>
+                    {% for prod in similar %}
+                    <td><img class="productPhoto" src="{{ prod.photo_set.all.0.photo_small }}" alt="{{product.title}}"/>
+                         <a href="#">{{ prod }}</a>
+                        <div>{{ prod.description|slice:":100" }}...</div>
                     </td>
-                    <td><img src="http://{{data_site}}/static/images/thumb2.jpg" />
-                        <a href="#">Sony Bravia KDL46Z5500</a>
-                        <div>Boasting improved design and an upgraded picture engine,
-                            the Sony Bravia KDL46Z5500 is perfect for watching the World Cup on.
-                            Which Cup is up to you</div>
-                    </td>
+                    {% endfor %}
                 </tr>
             </tbody>
         </table>

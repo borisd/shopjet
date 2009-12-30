@@ -62,7 +62,7 @@ class AttributeClass(models.Model):
 class Attribute(models.Model):
     name = models.CharField(max_length=30)
     desc = models.TextField(max_length=1000)
-    units = models.CharField(max_length=10)
+    units = models.CharField(max_length=10, blank=True, null=True)
     aclass = models.ForeignKey(AttributeClass)
 
     def __unicode__(self):
