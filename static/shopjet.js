@@ -11,7 +11,8 @@ function shopjet_init() {
 
 
 function shopjet_get_product_id() {
-	return 'Panasonic42';
+    /* Dynamically determine the product by inspecting elements in the page */
+    return shopjet_product;
 }
 
 $(document).ready(shopjet_init);

@@ -56,7 +56,7 @@
                         {% for review in reviews %}
                         <li><strong>{{ review.title }}</strong>
                         <span>{{ review.details|linebreaksbr }}</span>
-                        <a href="{{ review.link }}" target="_blank">{% trans "Read more" %} ...</a>
+                        <a href="{{ review.link }}" target="_blank">{% trans "Read more" %}...</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -94,8 +94,10 @@
             <tbody>
                 <tr>
                     {% for prod in similar %}
-                    <td><img class="productPhoto" src="{{ prod.photo_set.all.0.photo_small }}" alt="{{product.title}}"/>
-                         <a href="#">{{ prod }}</a>
+                    <td>
+                        <img class="productPhoto" src="{{ prod.photo_set.all.0.photo_small }}" alt="{{product.title}}"/>
+                        <a href="{% product_store_url prod store %}">
+                         {{ prod }}</a>
                         <div>{{ prod.description|slice:":100" }}...</div>
                     </td>
                     {% endfor %}

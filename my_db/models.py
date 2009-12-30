@@ -46,6 +46,7 @@ class Mapping(models.Model):
     store = models.ForeignKey(Store)
     storeProductId = models.CharField(max_length=30)
     product = models.ForeignKey(Product)
+    url = models.URLField()
 
 class Glossary(models.Model):
     term = models.CharField(max_length=100)

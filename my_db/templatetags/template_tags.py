@@ -1,4 +1,4 @@
-from shopjet.my_db.models import Glossary
+from shopjet.my_db.models import *
 from django.template.defaultfilters import stringfilter
 from django import template
 from django.utils.translation import ugettext as _
@@ -26,5 +26,13 @@ def product_attribute(product, attrtype):
 
     return _(attr.value) + ' ' + (attrtype.units)
 
+def product_store_url(product, store):
+    try:
+        mapping = Mapping.objects.get(store__id=store.id, product__id=product.id)
+    except Exception, e:
+        return '#'
+    return mapping.url
+
 register.simple_tag(product_attribute)
+register.simple_tag(product_store_url)
 

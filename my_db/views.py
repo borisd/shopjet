@@ -36,7 +36,11 @@ def get_table(mapping):
 
     result.append(block)    
 
-    return render_to_string('table.html', { 'result': result, 'products':products, 'data_site':local_settings.DATA_SITE })
+    return render_to_string('table.html', { 
+        'result': result,
+        'products':products,
+        'store': mapping.store,
+        'data_site':local_settings.DATA_SITE })
 
 def table(request):
     table = get_table(Mapping.objects.all()[1])
@@ -90,6 +94,7 @@ def show_product(request):
                                                   'user_reviews': mapping_obj.product.userreviews_set.all(), 
                                                   'photos': mapping_obj.product.photo_set.all(),
                                                   'similar':similar,
+                                                  'store':mapping_obj.store,
                                                   'tracking_id': str(random.random())[2:],
                                                   'table':table,
                                                   'data_site':local_settings.DATA_SITE,})
