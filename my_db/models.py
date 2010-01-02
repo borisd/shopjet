@@ -22,8 +22,10 @@ class Product(models.Model):
     title = models.CharField(max_length=100)    
     subtitle = models.CharField(max_length=100, blank=True, null=True)    
     video = models.URLField(blank=True, null=True)    
-    features_list = models.TextField()    
+    features_list = models.TextField(blank=True, null=True)    
     description = models.TextField(max_length=10000)
+    zapid = models.PositiveIntegerField()
+    rating = models.SmallIntegerField()
      
     def __unicode__(self):
         return _(self.title)
@@ -74,6 +76,9 @@ class ProductAttribute(models.Model):
     name = models.ForeignKey(Attribute)
     value = models.CharField(max_length=50)
 
+    class Meta:
+        unique_together = (("product", "name"),)
+
     def __unicode__(self):
         return u'%s - %s : %s' % (self.product, self.name, self.value)
 
@@ -85,3 +90,18 @@ class UserReviews(models.Model):
 
     def __unicode__(self):
         return u'%s - %s' % (self.product, self.user)
+
+class Tag(models.Model):
+    name = models.CharField(max_length=10)
+
+    def __unicode__(self):
+        return self.name
+
+class ProductTag(models.Model):
+    product = models.ForeignKey(Product)
+    tag = models.ForeignKey(Tag)
+
+    def __unicode__(self):
+        return u'%s %s' % (self.product, self.tag)
+
+    
