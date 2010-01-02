@@ -7,7 +7,7 @@ class ProductReview(models.Model):
     details= models.TextField(max_length=10000)
     link = models.URLField()    
     def __unicode__(self):
-        return _(self.title)
+        return u'%s - %s' % (self.product, self.title)
         
 class Photo(models.Model):
     photo_small = models.URLField(blank=True, null=True)
@@ -26,7 +26,7 @@ class Product(models.Model):
     description = models.TextField(max_length=10000)
      
     def __unicode__(self):
-        return _(self.title)
+        return u'%s - %s' % (self.title, self.subtitle)
         
 class Store(models.Model):
     storeName = models.CharField(max_length=50)
