@@ -1,18 +1,15 @@
-function shopjet_init() {
-	var product_id = shopjet_get_product_id();
-	var store_url = 'livesale.co.il'; //document.domain;
-	var params = 'storeURL=' + encodeURIComponent(store_url) + 
-				 '&productId=' + encodeURIComponent(product_id) + 
-				 '&callback=?';
-	$.getJSON('http://127.0.0.1:8000/products/', params, function(data) {
-		$('#shopjet').html(data.html);
-	});
+
+function emit_html(data) {
+    document.write(data);
 }
 
+var host = 'http://' + document.domain
+if (document.domain == '127.0.0.1')
+    host += ':8000';
 
-function shopjet_get_product_id() {
-    /* Dynamically determine the product by inspecting elements in the page */
-    return shopjet_product;
-}
+emit_html(unescape("%3Cscript src='" + host + "/static/jquery-1.3.2.min.js' type='text/javascript'%3E%3C/script%3E"));
+emit_html(unescape("%3Cscript src='" + host + "/static/querystring.js' type='text/javascript'%3E%3C/script%3E"));
+emit_html(unescape("%3Clink  href='" + host + "/static/style.css' type='text/css' rel='stylesheet' charset='UTF-8'/%3E"))
+emit_html(unescape("%3Cscript src='" + host + "/static/shopjet_main.js' type='text/javascript'%3E%3C/script%3E"));
+emit_html(unescape("%3Cdiv id='shopjet'%3E%3C/div%3E"));
 
-$(document).ready(shopjet_init);
