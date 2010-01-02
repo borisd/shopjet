@@ -11,8 +11,25 @@ function shopjet_init() {
 
 
 function shopjet_get_product_id() {
-    /* Dynamically determine the product by inspecting elements in the page */
-    return shopjet_product;
+    var productid = 0;
+
+    var query = window.location.search;
+    if (query.substring(0, 1) == '?') {
+        query = query.substring(1);
+    }
+
+    // Check all parameters
+    var data = query.split(',');
+    for (i = 0; (i < data.length); i++) {
+
+        // Check for presence of product id
+        var pair = unescape(data[i]).split('=');
+        if (pair[0] == 'productid')
+            productid = pair[1];
+
+    }
+
+    return productid;
 }
 
 $(document).ready(shopjet_init);
