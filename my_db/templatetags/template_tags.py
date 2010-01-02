@@ -9,7 +9,7 @@ register=template.Library()
 #@stringfilter
 @register.filter(name='term_defenition')
 def term_defenition(value):
-    "glossary for common term related to a specific product"    
+    "glossary for common term related to a specific product"
     glossaries = Glossary.objects.all()
     string=value
     for word in glossaries:        
@@ -24,7 +24,7 @@ def product_attribute(product, attrtype):
     except:
         return '&nbsp'
 
-    return _(attr.value) + ' ' + (attrtype.units)
+    return _(attr.value) + (attrtype.units)
 
 def product_store_url(product, store):
     try:

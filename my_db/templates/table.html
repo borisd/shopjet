@@ -4,11 +4,12 @@
     <tr>
         <td> </td>
         {% for p in products %}
-        <td> 
+        <td class="center {% ifequal p product %}selected{% endifequal %}"> 
             <p><img width="64" src="{{ p.photo_set.get.photo_small }}"/></p>
             <a href="{% product_store_url p store %}">
             <strong>{{p.title}}</strong>
             {{p.subtitle}}
+            <p>Rating: {{ p.rating }} </p>
         </a>
         </td>
         {% endfor %}
@@ -24,7 +25,7 @@
     <tr>
         <td class="attr with_border"> <span class="glossary" title="{{ attribute.desc }}" > {% trans attribute %} </span> </td>
         {% for p in products %}
-        <td class="value with_border"> {% product_attribute p attribute %} </td>
+        <td class="center value with_border {% ifequal p product %}selected{% endifequal %}"> {% product_attribute p attribute %}  </td>
         {% endfor %}
     </tr>
     {% endfor %}
