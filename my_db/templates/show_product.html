@@ -1,6 +1,15 @@
 {% load template_tags %}
 {% load i18n %}
 
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style">
+    <a class="addthis_button_facebook"></a>
+    <a class="addthis_button_twitter"></a>
+    <a class="addthis_button_email"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b2a308f3ba35ad7"></script>
+<!-- AddThis Button END -->
+
 <div class="widgetTitle">{{product.title}}</div>
 {% if product.subtitle %}
 <div class="widgetSubTitle">{{ product.subtitle }}</div>
@@ -10,11 +19,8 @@
     <div class="sectionContent">
         <table border="0" cellpadding="8" cellspacing="0">
             <tr valign="top">
-                
-                <td><img class="productPhoto" src="{{photos.0.photo_small}}" alt="{{product.title}}"/></td>
-                <td>
-                    {{product.description|term_defenition|safe|linebreaksbr}}
-                </td>
+                <td><img class="productPhotoMain" src="{{photos.0.photo_small}}" alt="{{product.title}}"/></td>
+                <td> {{product.description|term_defenition|safe|linebreaksbr}} </td>
             </tr>
         </table>
     </div>
@@ -26,11 +32,14 @@
         <table border="0" cellpadding="8" cellspacing="0">
             <tr valign="top">
                 <td width="320">
-                <ul>
+                    <table>
                     {% for attr in product.productattribute_set.all %}
-                    <li> {{ attr.name }} - {{ attr.value }} </li>
-                    {% endfor %}
-                </ul>
+                    <tr>
+                        <td class="attr_desc"> <span class="glossary" title="{{ attr.name.desc|linebreaksbr }}" >{{ attr.name }}</span> </td>
+                        <td><strong>{{ attr.value }}</strong>{{ attr.name.units }}</td>
+                    </tr>
+                        {% endfor %}
+                </table>
             </td>
                 {% if product.video %}
                 <td>
@@ -67,7 +76,7 @@
                         <li> {{ review.review }} <br><strong> {{ review.user }}</strong> </li>
                         {% endfor %}
                     </ul>
-                    <a href="">{% trans "Write a review" %}</a>
+                    <!--                    <a href="">{% trans "Write a review" %}</a> -->
                 </td>
             </tr>
         </table>

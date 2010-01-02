@@ -12,6 +12,10 @@
     text-align:right;
 }
 
+#shopjet .center {
+    text-align:center;
+}
+
 #shopjet td,#shopjet p,#shopjet ul,#shopjet ol {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -23,7 +27,7 @@
 	font-size: 28px;
 	font-weight: bold;
 	letter-spacing: -1px;
-	padding: 15px 0 5px 20px;
+	padding: 15px 20px 5px 20px;
 	margin: 0;
 	color: #fff;
 	background: #fff url(images/header.jpg) repeat-y;
@@ -33,7 +37,7 @@
 #shopjet .widgetSubTitle {
 	font-size: 19px;
 	color: #e1c70e;
-	padding: 5px 0 0 20px;
+	padding: 5px 30px 0 20px;
 	letter-spacing: -1px;
 	font-weight: 100;
 	background: #fff url(images/header.jpg) repeat-y;
@@ -52,9 +56,9 @@
 	font-weight: 100;
 	height: 30px;
 	line-height: 30px;
-	padding: 0 0 0 15px;
 	margin-top: 15px;
 	margin-bottom: 10px;
+    padding-right:20px;
 	color: #FFFFFF;
 }
 
@@ -114,6 +118,10 @@
 	width: 100px;
 }
 
+#shopjet img.productPhotoMain {
+    width: 400px;
+}
+
 #shopjet #similarProducts a {
 	font-weight: bold;
 	vertical-align: middle;
@@ -150,4 +158,10 @@
     border-bottom:1px gray dotted;
     border-right:1px gray dotted;
 }
+#shopjet td.selected {
+    background-color:#eeeeee;
+}
 
+#shopjet td.attr_desc {
+    width:100px;
+}

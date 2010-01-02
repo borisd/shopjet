@@ -39,6 +39,7 @@ def get_table(mapping):
     return render_to_string('table.html', { 
         'result': result,
         'products':products,
+        'product':mapping.product,
         'store': mapping.store,
         'data_site':local_settings.DATA_SITE })
 
@@ -51,12 +52,34 @@ def gadget(request):
     pass
 
 # gets a store url and store_product_id and return the product 
-def show_product(request):
-    print 'Start work'
+def build_html(request, mapping):
+    table = get_table(mapping)
 
+    similar = []
+    for p in mapping.store.mapping_set.all():
+        if p.product == mapping.product:
+            continue
+        similar.append(p.product)
+
+    similar = similar[0:2]        
+
+    html = render_to_string('show_product.html', {'product': mapping.product, 
+                                                  'reviews': mapping.product.productreview_set.all(), 
+                                                  'user_reviews': mapping.product.userreviews_set.all(), 
+                                                  'photos': mapping.product.photo_set.all(),
+                                                  'similar':similar,
+                                                  'store':mapping.store,
+                                                  'tracking_id': str(random.random())[2:],
+                                                  'table':table,
+                                                  'data_site':local_settings.DATA_SITE,})
+    return html
+
+def get_mapping(request):
     if not request.method == 'GET' :
         print 'Not a GET request'
         raise http.Http404                
+    
+    print request.GET
 
     try:
         product_id = request.GET['productId']           
@@ -65,42 +88,25 @@ def show_product(request):
     except:
         print 'Could not get mapping [%s] : [%s]' % (request.GET.get('productId', '0'), request.GET.get('storeURL', '0'))
         raise http.Http404                
+    return mapping_obj
 
-    #if the users shared the product with a friend 
-    try:    
-        tracking_id = request.GET.get('sjtc', None)
-        if tracking_id:
-            tracking_obj=Tracking.objects.get(trackId = tracking_id, store = mapping_obj.store )
-            tracking_obj.visitor_count+=1
-            tracking_obj.save()
-    except Tracking.DoesNotExist:
-        print 'Could not get traking'
-        pass
-        
 
-    table = get_table(mapping_obj)
+def show_product(request):
+    print 'Start work'
 
-    similar = []
-    for p in mapping_obj.store.mapping_set.all():
-        if p.product == mapping_obj.product:
-            continue
-        similar.append(p.product)
+    mapping = get_mapping(request)
 
-    similar = similar[0:2]        
+    html = build_html(request, mapping)
 
-    print 'Start render'
-    html = render_to_string('show_product.html', {'product': mapping_obj.product, 
-                                                  'reviews': mapping_obj.product.productreview_set.all(), 
-                                                  'user_reviews': mapping_obj.product.userreviews_set.all(), 
-                                                  'photos': mapping_obj.product.photo_set.all(),
-                                                  'similar':similar,
-                                                  'store':mapping_obj.store,
-                                                  'tracking_id': str(random.random())[2:],
-                                                  'table':table,
-                                                  'data_site':local_settings.DATA_SITE,})
     json = simplejson.dumps({'html': html})
+
     return HttpResponse(request.GET['callback'] + '(' + json + ')', mimetype='application/json')
-    
+
+def show(request):
+    mapping=Mapping.objects.get(store__storeURL='livesale.co.il', storeProductId='LG47')
+    html = build_html(request, mapping)
+    return HttpResponse(html)
+
 def generate_tracking(request):
     if not request.method == 'GET' :
         raise http.Http404                
