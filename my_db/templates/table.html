@@ -9,7 +9,9 @@
             <a href="{% product_store_url p store %}">
             <strong>{{p.title}}</strong>
             {{p.subtitle}}
-            <p>Rating: {{ p.rating }} </p>
+            {% if p.rating %}
+            <p>{% trans "Rating" %}: {{ p.rating }} </p>
+            {% endif %}
         </a>
         </td>
         {% endfor %}
