@@ -11,13 +11,24 @@ from models import *
 import random
 
 def get_table(mapping):
+    display_size = Attribute.objects.filter(name__iexact='DisplaySize')[0]
+    filter_category =display_size
+    
+#    filter_category = mapping.product.productattribute_set.all()[0].name
+
+    size = mapping.product.productattribute_set.get(name=filter_category).value
 
     products = [mapping.product]
     store_mappings = mapping.store.mapping_set.all()
     for p in store_mappings:
         if p.product == mapping.product:
             continue
+        if not p.product.productattribute_set.filter(name=filter_category, value=size):
+            continue
+        
         products.append(p.product)
+        if len(products) > 3:
+            break
 
     attrs = ProductAttribute.objects.filter(product=mapping.product).order_by("name__aclass")
     
@@ -44,7 +55,7 @@ def get_table(mapping):
         'data_site':local_settings.DATA_SITE })
 
 def table(request):
-    table = get_table(Mapping.objects.all()[1])
+    table = get_table(Mapping.objects.all()[71])
     return HttpResponse(table)
 
 

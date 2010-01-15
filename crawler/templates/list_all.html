@@ -1,0 +1,16 @@
+<h1> Done: {{ done }} Skipped: {{ skipped }} </h1>
+{% for item in items %}
+<ul>
+    <li>site = {{ item.site }} </li>
+    <li>site_name = {{ item.site_name }} </li>
+    <li>review_url = {{ item.review_url }}</li>
+    <li>summary = {{ item.summary }}</li>
+    <li>title = {{ item.title }}</li>
+    <li>img = {{ item.img  }}</li>
+    <li>author = {{ item.author }}</li>
+    <li>author_url = {{ item.author_url }}</li>
+    <li>date = {{ item.date  }}</li>
+</ul>
+<br>
+<hr>
+{% endfor %}

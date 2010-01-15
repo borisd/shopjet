@@ -25,7 +25,7 @@ class Product(models.Model):
     features_list = models.TextField(blank=True, null=True)    
     description = models.TextField(max_length=10000)
     zapid = models.PositiveIntegerField()
-    rating = models.SmallIntegerField()
+    rating = models.SmallIntegerField(blank=True)
      
     def __unicode__(self):
         return u'%s - %s' % (self.title, self.subtitle)
@@ -104,4 +104,3 @@ class ProductTag(models.Model):
     def __unicode__(self):
         return u'%s %s' % (self.product, self.tag)
 
-    

@@ -1,0 +1,70 @@
+Comments
+----------------
+SELECT [CommentId]
+      ,[CommentAuthor]
+      ,[CommentDate]
+      ,[CommentText]
+      ,[ZapProductId]
+  FROM [Zap].[dbo].[Comments]
+GO
+
+
+
+Products
+------------
+SELECT [ZapProductId]
+      ,[Category]
+      ,[Manufacturer]
+      ,[Family]
+      ,[Model]
+      ,[ZapImageURL]
+  FROM [Zap].[dbo].[Products]
+GO
+
+
+
+ProductAttributes
+-----------------------
+SELECT [ProductAttributeId]
+      ,[ZapProductId]
+      ,[AttributeId]
+      ,[AttributeValue]
+  FROM [Zap].[dbo].[ProductsAttributes]
+GO
+
+
+
+Attributes
+-------------
+SELECT [AttributeId]
+      ,[AttrName]
+      ,[AttrDesc]
+      ,[AttrUnits]
+  FROM [Zap].[dbo].[Attributes]
+GO
+
+
+
+
+Stores
+------
+SELECT [StoreId]
+      ,[StoreName]
+      ,[StoreDomain]
+      ,[StoreProductIdQuerryParam]
+  FROM [Shopjet].[dbo].[Stores]
+GO
+
+
+
+
+StoreProducts
+-------------
+SELECT TOP 1000 [Id]
+      ,[ZapProductId]
+      ,[StoreId]
+      ,[StoreProductId]
+      ,[StoreProductURL]
+      ,[StoreProductImageURL]
+      ,[StoreProductWarranty]
+  FROM [Shopjet].[dbo].[StoreProducts]
