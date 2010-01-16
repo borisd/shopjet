@@ -31,7 +31,15 @@
 
     {% for attribute in block.attrs %}
     <tr>
-        <td class="attr with_border"> <span class="glossary" title="{{ attribute.desc }}" > {% trans attribute %} </span> </td>
+        <td class="attr with_border"> 
+            {% if attribute.desc %}
+            <span class="glossary" title="{{ attribute.desc }}" >
+            {% else %}
+                <span>
+            {% endif %}
+                {% trans attribute %}
+            </span> 
+        </td>
         {% for p in products %}
         <td class="center value with_border {% ifequal p product %}selected{% endifequal %}"> {% product_attribute p attribute %}  </td>
         {% endfor %}

@@ -35,7 +35,15 @@
                     <table>
                     {% for attr in product.productattribute_set.all %}
                     <tr>
-                        <td class="attr_desc"> <span class="glossary" title="{{ attr.name.desc|linebreaksbr }}" >{{ attr.name }}</span> </td>
+                        <td class="attr_desc"> 
+                            {% if attr.name.desc %}
+                            <span class="glossary" title="{{ attr.name.desc|linebreaksbr }}" >
+                                {% else %}
+                                <span>
+                                {% endif %}
+                                {{ attr.name }}
+                            </span> 
+                        </td>
                         <td><strong>{{ attr.value }}</strong>{% if attr.name.units %}{{ attr.name.units }}{% endif %}</td>
                     </tr>
                         {% endfor %}
