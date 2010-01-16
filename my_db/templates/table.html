@@ -5,7 +5,13 @@
         <td> </td>
         {% for p in products %}
         <td class="center {% ifequal p product %}selected{% endifequal %}"> 
-            <p><img width="64" src="{{ p.photo_set.get.photo_small }}"/></p>
+            <p>
+            {% if p.photo_set.get.photo_small %}
+            <img width="64" src="{{ p.photo_set.get.photo_small }}"/>
+            {% else %}
+            <img width="64" src="{{ p.photo_set.get.photo_large }}"/>
+            {% endif %}
+            </p>
             <a href="{% product_store_url p store %}">
             <strong>{{p.title}}</strong>
             {{p.subtitle}}
