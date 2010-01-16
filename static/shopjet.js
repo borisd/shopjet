@@ -7,7 +7,7 @@ var host;
 if (document.domain == '127.0.0.1')
     host = 'http://127.0.0.1:8000';
 else
-    host = 'http://shopjet.co.il';
+    host = 'http://static.shopjet.co.il';
 
 emit_html(unescape("%3Cscript src='" + host + "/static/jquery-1.3.2.min.js' type='text/javascript'%3E%3C/script%3E"));
 emit_html(unescape("%3Cscript src='" + host + "/static/querystring.js' type='text/javascript'%3E%3C/script%3E"));
