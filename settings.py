@@ -96,7 +96,6 @@ TEMPLATE_DIRS = [
     set_dir("templates"),
     set_dir("coupon\\templates"),
     set_dir("people\\templates"),
-    set_dir("crawler\\templates"),
 ]
 
 INSTALLED_APPS = (
@@ -106,7 +105,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'shopjet.my_db',
-    'crawler',
-
     
 )
