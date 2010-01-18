@@ -1,4 +1,3 @@
-/* test */
 function shopjet_init() {
 	var product_id = shopjet_get_product_id();
 
@@ -7,7 +6,7 @@ function shopjet_init() {
         host = 'http://127.0.0.1:8000';
 
     var store_url = document.domain;
-    if (store_url == 'shopjet.co.il')
+    if (store_url == 'static.shopjet.co.il' || store_url == '127.0.0.1' || store_url == 'shopjet.co.il')
         store_url = 'livesale.co.il';
 
 	var params = 'storeURL=' + encodeURIComponent(store_url) + 
@@ -18,7 +17,6 @@ function shopjet_init() {
 		$('#shopjet').html(data.html);
 	});
 }
-
 
 function shopjet_get_product_id() {
     var productid = 0;
