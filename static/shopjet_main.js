@@ -1,3 +1,4 @@
+/* test */
 function shopjet_init() {
 	var product_id = shopjet_get_product_id();
 
