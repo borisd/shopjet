@@ -1,10 +1,9 @@
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: Main\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-29 08:49+0200\n"
-"PO-Revision-Date: 2010-01-02 17:43+0200\n"
+"PO-Revision-Date: 2010-01-18 20:30+0200\n"
 "Last-Translator: bla bla <do@itlater.com>\n"
 "Language-Team: Boris <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +19,7 @@ msgstr "עברית"
 
 #: .\settings.py:49
 msgid "English"
-msgstr ""
+msgstr "אנגלית"
 
 #: .\my_db\templates\show_product.html.py:23
 msgid "Features"
@@ -143,4 +142,25 @@ msgstr "aaa"
 
 msgid "BBB"
 msgstr "aaa"
+
+msgid "Display Technology"
+msgstr "טכנולוגיית תצוגה"
+
+msgid "Depth"
+msgstr "עומק"
+
+msgid "Width"
+msgstr "רוחב"
+
+msgid "Height"
+msgstr "גובהה"
+
+msgid "View Angle"
+msgstr "זווית צפיה"
+
+msgid "Inputs"
+msgstr "כניסות"
+
+msgid "Stereo"
+msgstr "סטריו"
 
