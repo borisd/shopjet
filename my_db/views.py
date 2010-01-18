@@ -11,7 +11,7 @@ from models import *
 import random
 
 def get_table(mapping):
-    display_size = Attribute.objects.filter(name__iexact='DisplaySize')[0]
+    display_size = Attribute.objects.get(id=32)
     filter_category =display_size
     
 #    filter_category = mapping.product.productattribute_set.all()[0].name
@@ -114,7 +114,7 @@ def show_product(request):
     return HttpResponse(request.GET['callback'] + '(' + json + ')', mimetype='application/json')
 
 def show(request):
-    mapping=Mapping.objects.get(store__storeURL='livesale.co.il', storeProductId='LG47')
+    mapping=Mapping.objects.get(store__storeURL='livesale.co.il', storeProductId='3517')
     html = build_html(request, mapping)
     return HttpResponse(html)
 

@@ -24,5 +24,5 @@ urlpatterns = patterns('',
     (r'^generate_tracking/', 'my_db.views.generate_tracking' ),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     (r'^tag_test/','my_db.views.tag_test' ),
-#    (r'^crawler/', include('crawler.urls')),
+    (r'^crawler/', include('crawler.urls')),
 )
