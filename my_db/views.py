@@ -66,13 +66,8 @@ def gadget(request):
 def build_html(request, mapping):
     table = get_table(mapping)
 
-    similar = []
-    for p in mapping.store.mapping_set.all():
-        if p.product == mapping.product:
-            continue
-        similar.append(p.product)
-
-    similar = similar[0:2]        
+    pset = mapping.store.mapping_set.exclude(product=mapping.product)
+    similar = (random.choice(pset).product, random.choice(pset).product,)
 
     html = render_to_string('show_product.html', {'product': mapping.product, 
                                                   'reviews': mapping.product.productreview_set.all(), 

@@ -11,8 +11,8 @@
 <!-- AddThis Button END -->
 
 <div class="widgetTitle">{{product.title}}</div>
-{% if product.subtitle %}
-<div class="widgetSubTitle">{{ product.subtitle }}</div>
+ {% if product.subtitle %}
+<div class="widgetSubTitle"> {% trans "model" %} {{ product.subtitle }}</div>
 {% endif %}
 
 <div class="section" id="overview">
@@ -44,7 +44,7 @@
                                 {{ attr.name }}
                             </span> 
                         </td>
-                        <td><strong>{{ attr.value }}</strong>{% if attr.name.units %}{{ attr.name.units }}{% endif %}</td>
+                        <td><strong>{{ attr.value }}</strong>{% if attr.name.units %}{% trans attr.name.units %}{% endif %}</td>
                     </tr>
                         {% endfor %}
                 </table>
@@ -75,6 +75,8 @@
                         <span>{{ review.details|linebreaksbr }}</span>
                         <a href="{{ review.link }}" target="_blank">{% trans "Read more" %}...</a>
                         </li>
+                        {% empty %}
+                        {% trans "No professional reviews found" %}
                         {% endfor %}
                     </ul>
                 </td>
@@ -82,6 +84,8 @@
                     <ul>
                         {% for review in user_reviews %}
                         <li> {{ review.review }} <br><strong> {{ review.user }}</strong> </li>
+                        {% empty %}
+                        {% trans "No community reviews found" %}
                         {% endfor %}
                     </ul>
                     <!--                    <a href="">{% trans "Write a review" %}</a> -->
@@ -111,10 +115,11 @@
                 <tr>
                     {% for prod in similar %}
                     <td>
-                        <img class="productPhoto" src="{{ prod.photo_set.all.0.photo_small }}" alt="{{product.title}}"/>
-                        <a href="{% product_store_url prod store %}">
-                         {{ prod }}</a>
+                        <img class="productPhotoMin" src="{{ prod.photo_set.all.0.photo_large }}" alt="{{product.title}}"/>
+                        <a href="{% product_store_url prod store %}"> {{ prod }}</a>
+                        {% if prod.description %}
                         <div>{{ prod.description|slice:":100" }}...</div>
+                        {% endif %}
                     </td>
                     {% endfor %}
                 </tr>
@@ -136,5 +141,8 @@
         </div>
         <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b2a308f3ba35ad7"></script>
         <!-- AddThis Button END -->
+        <div style="float:left">
+            {% trans "Parts of the content on this page are provided via zap.co.il" %}
+        </div>
     </div>
 </div>

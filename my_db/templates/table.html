@@ -37,11 +37,16 @@
             {% else %}
                 <span>
             {% endif %}
-                {% trans attribute %}
+            {% trans attribute %}
+            {% if attribute.units %}
+            ({% trans attribute.units %})
+            {% endif %}
             </span> 
         </td>
         {% for p in products %}
-        <td class="center value with_border {% ifequal p product %}selected{% endifequal %}"> {% product_attribute p attribute %}  </td>
+        <td class="center value with_border {% ifequal p product %}selected{% endifequal %}"> 
+            {% product_attribute p attribute %}  
+        </td>
         {% endfor %}
     </tr>
     {% endfor %}

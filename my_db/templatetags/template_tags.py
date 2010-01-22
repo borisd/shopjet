@@ -25,8 +25,8 @@ def product_attribute(product, attrtype):
         return '&nbsp'
 
     str = _(attr.value)
-    if attrtype.units:
-        str += attrtype.units
+#    if attrtype.units:
+#        str += attrtype.units
     return str
 
 def product_store_url(product, store):

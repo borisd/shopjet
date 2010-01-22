@@ -1,6 +1,7 @@
 # Django settings for shopjet project.
 import os
 import local_settings
+import random
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -109,3 +110,7 @@ INSTALLED_APPS = (
     'shopjet.crawler',
     
 )
+
+print 'Seeding random number generator'
+random.seed()
+
