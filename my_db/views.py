@@ -89,7 +89,13 @@ def get_mapping(request):
 
     try:
         product_id = request.GET['productId']           
-        storeURL = request.GET['storeURL']      
+        storeURL = request.GET['storeURL']
+
+        # Remove 'www' from store start
+        if storeURL.split('.')[0] == 'www':
+            storeURL = '.'.join(storeURL.split('.')[1:])
+            print 'Strip down www prefix [%s]' % storeURL
+
         mapping_obj=Mapping.objects.get(store__storeURL=storeURL, storeProductId=product_id)
     except:
         print 'Could not get mapping [%s] : [%s]' % (request.GET.get('productId', '0'), request.GET.get('storeURL', '0'))
