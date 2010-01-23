@@ -27,7 +27,7 @@ function shopjet_get_product_id() {
     }
 
     // Check all parameters
-    var data = query.split(',');
+    var data = query.split('&');
     for (i = 0; (i < data.length); i++) {
 
         // Check for presence of product id
