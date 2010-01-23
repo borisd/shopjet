@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Main\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-29 08:49+0200\n"
-"PO-Revision-Date: 2010-01-22 16:26+0200\n"
+"PO-Revision-Date: 2010-01-23 20:21+0200\n"
 "Last-Translator: bla bla <do@itlater.com>\n"
 "Language-Team: Boris <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,27 +19,27 @@ msgstr "עברית"
 
 #: .\settings.py:49
 msgid "English"
-msgstr "אנגלית"
+msgstr "אנגלית "
 
 #: .\my_db\templates\show_product.html.py:23
 msgid "Features"
-msgstr "מאפיינים"
+msgstr "מאפינים טכניים"
 
 #: .\my_db\templates\show_product.html.py:49
 msgid "Opinions"
-msgstr "דעות"
+msgstr "דעות על המוצר"
 
 #: .\my_db\templates\show_product.html.py:53
 msgid "Professional Reviews"
-msgstr "סקירה מקצועית"
+msgstr "סקירות מקצועיות"
 
 #: .\my_db\templates\show_product.html.py:63
 msgid "What the Community Says"
-msgstr "מה הקהילה אומרת"
+msgstr "מה אומרת הקהילה"
 
 #: .\my_db\templates\show_product.html.py:76
 msgid "Comparison"
-msgstr "השוואת"
+msgstr "השוואת מוצרים"
 
 #: .\my_db\templates\show_product.html.py:89
 msgid "Similar Products"
@@ -153,7 +153,7 @@ msgid "Width"
 msgstr "רוחב"
 
 msgid "Height"
-msgstr "גובהה"
+msgstr "גובה"
 
 msgid "View Angle"
 msgstr "זווית צפיה"
@@ -177,7 +177,7 @@ msgid "inch"
 msgstr "אינצ'"
 
 msgid "Parts of the content on this page are provided via zap.co.il"
-msgstr "חלק מהתכנים למעלה הינם מאתר זאפ"
+msgstr "חלק מהתכנים בעמוד זה הינם מאתר זאפ"
 
 msgid "model"
 msgstr "דגם"
