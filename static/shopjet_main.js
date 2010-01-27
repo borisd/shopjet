@@ -15,7 +15,39 @@ function shopjet_init() {
 
 	$.getJSON(host + '/products/', params, function(data) {
 		$('#shopjet').html(data.html);
+		
+		// transform all title tags into qTips
+		setTips();
+		
+	
 	});
+}
+
+function setTips() {
+		$("#shopjet span.glossary").qtip({
+			content: {  text: false // use each elements title attribute
+						 }, 
+			 style: { 
+				  width: {minimum:100, maximum:250},
+				  padding: 5,
+				  background: '#A2D959',
+				  color: 'black',
+				  textAlign: 'right',
+				  border: {
+					 width: 7,
+					 radius: 5,
+					 color: '#A2D959'
+				  }
+			},
+			position: {
+				corner: {
+					target: 'bottomLeft',
+					tooltip: 'topRight' } 
+
+					
+				}
+
+			});
 }
 
 function shopjet_get_product_id() {
