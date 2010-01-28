@@ -146,3 +146,21 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function track_prod() {
+        pageTracker._trackPageview();
+        pageTracker._trackEvent('product', {{product.zapid}});
+    
+        trackHandlerFull = function() {
+            pageTracker._trackEvent('get', 'shopjet');
+        };
+
+        $('input.standartFont').unbind('click', trackHandler);
+        $('input.standartFont').bind('click', trackHandlerFull);
+    };
+
+    $(document).ready(track_prod); 
+
+</script>
+
