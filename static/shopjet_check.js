@@ -27,9 +27,8 @@ function track()
 
     } catch(er) {}
 	
-	 // track whether current page is normal / shopjet
-	 console.log("View mode:"+_trackView);
-	 pageTracker._trackEvent('view', _trackView);
+	// track whether current page is normal / shopjet
+	pageTracker._trackEvent('view', _trackView);
 
 	 // the user clicked on "Purchase" button from 'normal' page (this is overriden in showproduct.html in case of 'shopjet' page)
     trackHandler = function() {

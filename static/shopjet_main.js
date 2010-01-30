@@ -23,24 +23,23 @@ function shopjet_init() {
 
 function requestSucceded(data) {
 	// inject html received from shopjet.co.il
-		$('#shopjet').html(data.html);
-		// transform all title tags into qTips
-		setTips();
-		// json request succeded, means we are on 'shopjet' page, track 'view shopjet' event
-		trackView('shopjet');
+	$('#shopjet').html(data.html);
+	// transform all title tags into qTips
+	setTips();
+	// json request succeded, means we are on 'shopjet' page, track 'view shopjet' event
+	trackView('shopjet');
 }
 
 function requestFailed() {
-		console.log("ShopJet server returned an error. ShopJet content is not displayed");
-		// json request failed, means we are on 'normal' page, track 'view normal' event
-		trackView('normal');
+	// json request failed, means we are on 'normal' page, track 'view normal' event
+	trackView('normal');
 }
 
 
 
 
 function trackView(action) {
-		  _trackView = action;
+	  _trackView = action;
 }
 	
 function setTips() {
