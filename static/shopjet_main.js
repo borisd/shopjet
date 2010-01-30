@@ -13,21 +13,42 @@ function shopjet_init() {
 				 '&productId=' + encodeURIComponent(product_id) + 
 				 '&callback=?';
 
+	// register handler function in case getJson fails
+	$('#shopjet').ajaxError(requestFailed);
 	$.getJSON(host + '/products/', params, function(data) {
-		$('#shopjet').html(data.html);
-		
-		// transform all title tags into qTips
-		setTips();
-		
-	
+			requestSucceded(data);
 	});
 }
 
+
+function requestSucceded(data) {
+	// inject html received from shopjet.co.il
+		$('#shopjet').html(data.html);
+		// transform all title tags into qTips
+		setTips();
+		// json request succeded, means we are on 'shopjet' page, track 'view shopjet' event
+		trackView('shopjet');
+}
+
+function requestFailed() {
+		console.log("ShopJet server returned an error. ShopJet content is not displayed");
+		// json request failed, means we are on 'normal' page, track 'view normal' event
+		trackView('normal');
+}
+
+
+
+
+function trackView(action) {
+		  _trackView = action;
+}
+	
 function setTips() {
 		$("#shopjet span.glossary").qtip({
 			content: {  text: false // use each elements title attribute
 						 }, 
 			 style: { 
+				  title: { 'direction': 'rtl'}, 
 				  width: {minimum:100, maximum:250},
 				  padding: 5,
 				  background: '#A2D959',
